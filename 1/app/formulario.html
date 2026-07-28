@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alta de alumno</title>
+  </head>
+  <body>
+    <h1>Alta de alumno</h1>
+
+    <form action="guardar.php" method="POST">
+      <label> Nombre: <input type="text" name="nombre" required /> </label
+      ><br />
+      
+      <label> Email: <input type="email" name="email" required /> </label><br />
+
+      <label> Edad: <input type="number" name="edad" required /> </label><br />
+
+      <button type="submit">Guardar</button>
+    </form>
+
+    <a href="listado.php">Ver listado de alumnos</a>
+  </body>
+</html>

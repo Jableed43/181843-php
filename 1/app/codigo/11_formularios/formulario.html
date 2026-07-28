@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de registro</title>
+    <style>
+        body   { font-family: Arial, Helvetica, sans-serif; margin: 40px; }
+        label  { display: block; margin-top: 12px; font-weight: bold; }
+        input  { padding: 6px; width: 260px; }
+        button { margin-top: 20px; padding: 8px 20px; cursor: pointer; }
+        fieldset { max-width: 380px; }
+    </style>
+</head>
+<body>
+
+    <h1>Formulario de registro</h1>
+
+    <!--
+        Ejercicio propuesto (Formularios)
+        ------------------------------------------------------------
+        Crear un formulario de registro en el archivo formulario.html que
+        utilice el método POST y defina en su action a formulario.php.
+        Campos: Nombre, Apellido, Email, Password, Confirmar password.
+
+        Atributos del <form>:
+          action -> URL a donde se envían los datos
+          method -> método HTTP utilizado (GET o POST)
+          name   -> nombre del formulario
+
+        El atributo name de cada input es la CLAVE con la que el dato
+        llega a $_POST en el script PHP.
+    -->
+    <form action="formulario.php" method="POST" name="registro">
+        <fieldset>
+            <legend>Datos del usuario</legend>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirmar_password">Confirmar password</label>
+            <input type="password" id="confirmar_password" name="confirmar_password" required>
+
+            <button type="submit">Registrarme</button>
+        </fieldset>
+    </form>
+
+    <p>
+        Probá también la versión por GET para ver la diferencia:
+        <a href="formulario_get.html">formulario_get.html</a>
+    </p>
+
+</body>
+</html>

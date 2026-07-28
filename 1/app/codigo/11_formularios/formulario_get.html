@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario enviado por GET</title>
+    <style>
+        body   { font-family: Arial, Helvetica, sans-serif; margin: 40px; }
+        label  { display: block; margin-top: 12px; font-weight: bold; }
+        input  { padding: 6px; width: 260px; }
+        button { margin-top: 20px; padding: 8px 20px; cursor: pointer; }
+        fieldset { max-width: 380px; }
+    </style>
+</head>
+<body>
+
+    <h1>Mismo formulario, pero por GET</h1>
+
+    <!--
+        Comparación GET vs POST:
+        - GET  -> los datos viajan en la URL (?nombre=Juan&apellido=Perez)
+                  y quedan visibles en la barra de direcciones y el historial.
+                  Se leen en PHP con $_GET['nombre_del_campo'].
+        - POST -> los datos viajan en el cuerpo del pedido HTTP, no se ven
+                  en la URL. Se leen con $_POST['nombre_del_campo'].
+
+        Por eso las contraseñas NUNCA se envían por GET.
+    -->
+    <form action="formulario_get.php" method="GET" name="registro_get">
+        <fieldset>
+            <legend>Datos del usuario</legend>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">Enviar por GET</button>
+        </fieldset>
+    </form>
+
+    <p><a href="formulario.html">Ir al formulario por POST</a></p>
+
+</body>
+</html>
