@@ -1,0 +1,216 @@
+===============================================================
+ CLASE 3 - CODEIGNITER 3
+ Proyecto base para la clase
+===============================================================
+
+Esta carpeta es una instalacion completa de CodeIgniter 3 lista
+para usar. NO hace falta descargar ni instalar nada mas.
+
+Es la misma carpeta que usa el profesor en clase, asi que todos
+partimos exactamente del mismo punto.
+
+
+---------------------------------------------------------------
+ 1. DONDE COPIARLA
+---------------------------------------------------------------
+
+Copia esta carpeta entera dentro de la carpeta publica de tu
+servidor local, y ponele el nombre que quieras:
+
+   XAMPP    ->  xampp\htdocs\clase3\
+   WAMP     ->  wamp64\www\clase3\
+   Laragon  ->  laragon\www\clase3\
+
+Quedaria accesible en:  http://localhost/clase3
+
+
+---------------------------------------------------------------
+ 2. LAS DOS LINEAS QUE TENES QUE CAMBIAR
+---------------------------------------------------------------
+
+La carpeta viene configurada para la maquina del profesor.
+Hay que ajustar dos cosas a la tuya.
+
+
+>>> CAMBIO 1 - La URL de tu proyecto
+
+Archivo:  application/config/config.php
+Linea:    26
+
+Dice esto (la ruta de la maquina del profe):
+
+   $config['base_url'] = 'http://localhost/cursada_php/clase3_ci/base/';
+
+Cambialo por la URL donde quedo TU carpeta. Si la llamaste
+"clase3", seria:
+
+   $config['base_url'] = 'http://localhost/clase3/';
+
+  * Respeta la barra "/" del final.
+  * base_url es la direccion que CodeIgniter usa cada vez que
+    genera un link. Si esta mal, los links del sitio apuntan a
+    cualquier lado.
+
+
+>>> CAMBIO 2 - Que se ve al entrar a la raiz
+
+Archivo:  application/config/routes.php
+Linea:    52
+
+Dice:
+
+   $route['default_controller'] = 'productos';
+
+Eso significa que al entrar a http://localhost/clase3 vas a ver
+una PANTALLA EN BLANCO. No esta roto: es que va directo al
+controlador "Productos", que todavia esta vacio (lo completamos
+en clase).
+
+Si preferis ver la pantalla de bienvenida de CodeIgniter para
+confirmar que todo instalo bien, cambialo por:
+
+   $route['default_controller'] = 'welcome';
+
+Tambien podes dejarlo como esta y entrar directamente a:
+
+   http://localhost/clase3/index.php/welcome
+
+
+---------------------------------------------------------------
+ 3. LA BASE DE DATOS
+---------------------------------------------------------------
+
+a) Abri phpMyAdmin:   http://localhost/phpmyadmin
+
+b) Pestania "Importar" -> elegi el archivo:
+
+      crear_tabla_productos.sql
+
+   (esta en la raiz de esta misma carpeta)
+
+c) Dale "Continuar".
+
+Eso crea la base "clase3", la tabla "productos" y carga 3
+productos de ejemplo.
+
+   ATENCION: si lo importas dos veces, los productos se
+   DUPLICAN. Si ves 6 o 9 productos en vez de 3, avisale al
+   profesor o corre esto en la pestania SQL:
+
+      USE clase3;
+      TRUNCATE TABLE productos;
+      INSERT INTO productos (nombre, precio, stock) VALUES
+      ('Coca Cola 2L', 1500.00, 30),
+      ('Agua Mineral 500ml', 500.00, 100),
+      ('Cerveza Rubia 1L', 2200.00, 45);
+
+La conexion a la base ya esta configurada en:
+
+      application/config/database.php   (lineas 73 a 77)
+
+Usuario "root" sin contrasenia, que es el valor por defecto de
+XAMPP y de WAMP. Si vos le pusiste contrasenia a tu MySQL,
+cambiala en la linea 75.
+
+
+---------------------------------------------------------------
+ 4. COMO SABES QUE ANDA
+---------------------------------------------------------------
+
+   OJO: esta parte es rara a proposito. Leela con atencion.
+
+Con Apache y MySQL corriendo, entra a:
+
+   http://localhost/clase3/index.php/productos
+
+   >>> VAS A VER UNA PAGINA TOTALMENTE EN BLANCO. <<<
+   >>> ESO ESTA BIEN. NO ESTA ROTO.               <<<
+
+Esta en blanco porque el controlador todavia no hace nada: tiene
+los comentarios "// TODO" y ninguna instruccion. El codigo que
+llena esa pantalla lo escribimos juntos en clase.
+
+Entonces... si TODO se ve en blanco, como sabes que instalaste
+bien? Con esta otra URL:
+
+   http://localhost/clase3/index.php/welcome
+
+Ahi SI tenes que ver la pantalla de bienvenida de CodeIgniter,
+que dice "Welcome to CodeIgniter!".
+
+   ESA es la prueba de que la instalacion funciona.
+
+Y para confirmar que la base de datos tambien esta bien, entra a
+phpMyAdmin y fijate que la tabla "productos" tenga 3 filas.
+
+RESUMEN DE QUE ES NORMAL ANTES DE LA CLASE:
+
+   /index.php/welcome     ->  pantalla de bienvenida    OK
+   /index.php/productos   ->  pagina en blanco          OK
+   la raiz (sin nada)     ->  pagina en blanco          OK
+
+
+---------------------------------------------------------------
+ 5. QUE HAY EN CADA CARPETA
+---------------------------------------------------------------
+
+   application/   TU codigo. Todo lo que hacemos va aca.
+   system/       El nucleo del framework. NO SE TOCA NUNCA.
+   index.php     Punto de entrada. Todas las paginas pasan por aca.
+
+Dentro de application/ nos importan cuatro carpetas:
+
+   config/        Configuracion (los archivos del punto 2)
+   controllers/   Productos.php
+   models/        Productos_model.php
+   views/         productos_listado.php
+
+Esos tres ultimos archivos tienen comentarios "// TODO".
+ESO es lo que completamos en clase. No hace falta que los toques
+antes: si queres adelantarte, mejor lee el material teorico.
+
+
+---------------------------------------------------------------
+ 6. SI ALGO NO ANDA
+---------------------------------------------------------------
+
+ "Pagina en blanco"
+    Antes de la clase es lo NORMAL (ver punto 4). La prueba de
+    que anda es /index.php/welcome, no /index.php/productos.
+    Si tampoco ves la pantalla de bienvenida, ahi si hay un
+    problema: fijate que en el archivo index.php de la raiz, la
+    linea 56 diga 'development'.
+
+ "Unable to connect to your database server"
+    MySQL no esta corriendo. Levantalo desde el panel de XAMPP
+    o WAMP. Si corre, revisa usuario y contrasenia en
+    application/config/database.php
+
+ "404 Page Not Found"
+    Revisa que la URL tenga el index.php en el medio:
+    http://localhost/clase3/index.php/productos
+
+ "Unable to locate the specified class: Session.php"
+ u otros errores raros del framework
+    Casi siempre es la version de PHP. Fijate que tengas PHP 7.4
+    o superior (en XAMPP: panel -> Shell -> escribi "php -v").
+
+ Cualquier otra cosa:
+    Sacale una captura a la pantalla del error y mandala por el
+    foro ANTES de la clase. No llegues el dia de la clase con
+    esto sin resolver: arrancamos a programar en el minuto 20.
+
+
+===============================================================
+ RESUMEN: 4 PASOS
+===============================================================
+
+ [ ] 1. Copiar la carpeta a htdocs (XAMPP) o www (WAMP)
+ [ ] 2. Cambiar base_url en config.php linea 26
+ [ ] 3. Importar crear_tabla_productos.sql en phpMyAdmin
+ [ ] 4. Entrar a http://localhost/clase3/index.php/welcome
+        y ver "Welcome to CodeIgniter!"
+
+ Si ves esa pantalla de bienvenida, ya estas listo para la clase.
+
+===============================================================

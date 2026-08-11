@@ -89,7 +89,7 @@ De más abierto a más cerrado: **`public` → `protected` → `private`**
 > `private` no es para esconderle cosas a nadie: es para que nadie —ni vos dentro de 6 meses— pueda romper el objeto.
 
 📄 Ver `peliculas.php`: ahí está el ejemplo completo con las dos líneas comentadas al final (`$peli->duracion = 120;` y `echo $peli->duracion;`). **Descomentalas para ver el error en pantalla:**
-> `Fatal error: Cannot access private property Video::$duracion`
+> `Fatal error: Uncaught Error: Cannot access private property Video::$duracion`
 
 ### Getters y setters
 Si una propiedad es privada, la única forma de leerla o modificarla desde afuera es a través de métodos:
