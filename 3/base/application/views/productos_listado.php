@@ -3,5 +3,12 @@
     <tr>
         <th>ID</th><th>Nombre</th><th>Precio</th><th>Stock</th>
     </tr>
-    <?php // TODO: recorrer $productos con foreach e imprimir una <tr> por producto ?>
+    <?php foreach ($productos as $producto): ?>
+        <tr>
+            <td> <?php echo $producto->id; ?> </td>
+            <td> <?php echo htmlspecialchars($producto->nombre); ?> </td>
+            <td> <?php echo $producto->precio; ?> </td>
+            <td> <?php echo $producto->stock; ?> </td>
+        </tr>
+        <?php endforeach; ?>
 </table>
