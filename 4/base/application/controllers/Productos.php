@@ -57,6 +57,18 @@ class Productos extends CI_Controller {
         //   - 'nombre' -> required | min_length[3]
         //   - 'precio' -> required | numeric
         //   - 'stock'  -> required | numeric
+        $this->form_validation->set_rules('nombre', 'Nombre', 'required|min_length[3]', array(
+            'required' => 'El campo %s es obligatorio.',
+            'min_length' => 'El campo %s necesita al menos 3 caracteres.'
+        ));
+        $this->form_validation->set_rules('precio', 'Precio', 'required|numeric', array(
+            'required' => 'El campo %s es obligatorio.',
+            'numeric' => 'El campo %s tiene que ser un número.'
+        ));
+        $this->form_validation->set_rules('stock', 'Stock', 'required|numeric', array(
+            'required' => 'El campo %s es obligatorio.',
+            'numeric' => 'El campo %s tiene que ser un número.'
+        ));
 
         // TODO 2: mensajes en español (4º parámetro de set_rules)
         //   Es un array: clave = nombre de la regla, valor = mensaje.
@@ -64,16 +76,30 @@ class Productos extends CI_Controller {
         //   Ej: array('required' => 'El campo %s es obligatorio.')
 
         // TODO 3: el if que decide qué hacer
-        //   if ($this->form_validation->run() == FALSE) {
-        //       $datos['titulo'] = 'Nuevo Producto';
-        //       cargar la vista 'productos_nuevo' pasándole $datos
-        //   } else {
-        //       armar el array $producto leyendo con $this->input->post('campo')
-        //       $idInsertado = $this->Productos_model->crear($producto);
-        //       armar $datos con: titulo, nombre, id_insertado y email_simulado
-        //       cargar la vista 'productos_exito'
-        //   }
+          if ($this->form_validation->run() == FALSE) {
+            // si es la primera visita o tenes errores entonces  vuelve a mostrar el formulario
+            // set_value / form_error
+              $datos['titulo'] = 'Nuevo Producto';
+            //   cargar la vista 'productos_nuevo' pasándole $datos
+            $this->load->view('productos_nuevo', $datos);
+          } else {
+            // Y si sale bien vamos por aca:
+            $producto = array(
+                'nombre' => $this->input->post('nombre'),
+                'precio' => $this->input->post('precio'),
+                'stock' => $this->input->post('stock'),
+            );
+            //   armar el array $producto leyendo con $this->input->post('campo')
+              $idInsertado = $this->Productos_model->crear($producto);
+            //   armar $datos con: titulo, nombre, id_insertado y email_simulado
+            //   cargar la vista 'productos_exito'
+            $datos['titulo'] = 'Producto guardado';
+            $datos['nombre']= $producto['nombre'];
+            $datos['id_insertado']= $idInsertado;
+            $datos['email_simulado'] = $this->notificarAlta($producto, $idInsertado);
 
+            $this->load->view('productos_exito', $datos);
+          }
     }
 
     /* ---------- Notificación por email ----------

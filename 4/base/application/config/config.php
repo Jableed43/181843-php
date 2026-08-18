@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/cursada_php/clase4_ci/base/';
+$config['base_url'] = 'http://localhost/181843/4/base/';
 
 /*
 |--------------------------------------------------------------------------

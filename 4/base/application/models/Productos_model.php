@@ -22,7 +22,10 @@ class Productos_model extends CI_Model {
         // TODO 1: insertar con $this->db->insert('productos', $datos)
         //   Recibe la tabla y un array asociativo:
         //   clave = nombre de la columna, valor = dato a guardar.
-
+        // insertamos-creamos el registro del producto
+        $this->db->insert('productos', $datos);
+        // insert_id es el id generado al crear el producto
+        return $this->db->insert_id();
         // TODO 2: retornar el id que quedó, con $this->db->insert_id()
     }
 

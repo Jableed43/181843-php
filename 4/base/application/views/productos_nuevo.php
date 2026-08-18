@@ -18,19 +18,19 @@
         <?php /* set_value() repuebla el campo con lo que el usuario ya había escrito,
                  para que un error de validación no le borre todo el formulario. */ ?>
         <input type="text" id="nombre" name="nombre" value="<?php echo set_value('nombre'); ?>">
-        <div class="error"><?php // TODO 1: mostrar form_error('nombre') ?></div>
+        <div class="error"><?php echo form_error('nombre'); ?></div>
     </div>
 
     <div class="campo">
         <label for="precio">Precio</label>
         <input type="text" id="precio" name="precio" value="<?php echo set_value('precio'); ?>">
-        <div class="error"><?php // TODO 2: mostrar form_error('precio') ?></div>
+        <div class="error"><?php echo form_error('precio'); ?></div>
     </div>
 
     <div class="campo">
         <label for="stock">Stock</label>
         <input type="text" id="stock" name="stock" value="<?php echo set_value('stock'); ?>">
-        <div class="error"><?php // TODO 3: mostrar form_error('stock') ?></div>
+        <div class="error"><?php echo form_error('stock'); ?></div>
     </div>
 
     <button type="submit">Guardar</button>
