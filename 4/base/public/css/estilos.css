@@ -1,0 +1,145 @@
+/* Hoja de estilos de la app — vive en public/css/
+   Se incluye desde application/views/partials/head.php con base_url() */
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: system-ui, "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+    color: #22303c;
+    margin: 0;
+    padding: 24px;
+}
+
+.contenedor {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 24px 28px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .12);
+}
+
+header.barra {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 2px solid #e6eaee;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+header.barra img { height: 40px; }
+header.barra h1 { font-size: 1.25rem; margin: 0; }
+
+/* ---------- Tabla del listado ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 9px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e6eaee;
+}
+
+th {
+    background: #22303c;
+    color: #fff;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+tr:nth-child(even) td { background: #fafbfc; }
+
+/* ---------- Formulario ---------- */
+form label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #c3ccd5;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+form input[type="text"]:focus {
+    outline: 2px solid #2d7ff9;
+    border-color: #2d7ff9;
+}
+
+.campo { margin-bottom: 16px; }
+
+/* ---------- Errores de validación ----------
+   form_error() envuelve el mensaje en <p> por defecto.
+   Con set_error_delimiters() en el controlador se puede cambiar. */
+.error, .error p {
+    color: #c0392b;
+    font-size: .85rem;
+    margin: 2px 0 0;
+}
+
+.errores-resumen {
+    background: #fdecea;
+    border-left: 4px solid #c0392b;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+}
+
+.errores-resumen p { margin: 2px 0; color: #c0392b; }
+
+/* ---------- Botones y links ---------- */
+button {
+    background: #2d7ff9;
+    color: #fff;
+    border: 0;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover { background: #1c6ae0; }
+
+a { color: #2d7ff9; }
+
+.boton-link {
+    display: inline-block;
+    background: #27ae60;
+    color: #fff;
+    text-decoration: none;
+    padding: 9px 18px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+.boton-link:hover { background: #1e8b4d; }
+
+/* ---------- Debug del email simulado ---------- */
+.email-simulado {
+    background: #eef6ff;
+    border-left: 4px solid #2d7ff9;
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+    font-size: .85rem;
+}
+
+.email-simulado pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 8px 0 0;
+}

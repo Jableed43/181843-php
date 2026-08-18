@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40" role="img" aria-label="Distribuidora JS">
+  <rect width="120" height="40" rx="6" fill="#22303c"/>
+  <circle cx="20" cy="20" r="11" fill="#2d7ff9"/>
+  <path d="M15 14h10v3h-3.5v11h-3V17H15z" fill="#fff"/>
+  <text x="40" y="18" font-family="system-ui, Arial, sans-serif" font-size="10" font-weight="700" fill="#fff">DISTRI</text>
+  <text x="40" y="30" font-family="system-ui, Arial, sans-serif" font-size="8" fill="#8fa6bb">Control de stock</text>
+</svg>
