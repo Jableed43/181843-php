@@ -1,0 +1,40 @@
+.app h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+
+.lista-alumnos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tarjeta-alumno {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tarjeta-alumno h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.tarjeta-alumno p {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.tarjeta-alumno .nota {
+  font-weight: bold;
+  font-size: 18px;
+  color: #4361ee;
+  flex: none;
+}
