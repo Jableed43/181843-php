@@ -1,0 +1,10 @@
+.reloj {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 24px;
+  background: #1a1a2e;
+  color: #ffd700;
+  border-radius: 8px;
+  font-size: 24px;
+  font-family: ui-monospace, Consolas, monospace;
+}

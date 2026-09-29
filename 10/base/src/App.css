@@ -1,0 +1,16 @@
+#root {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.seccion-reloj {
+  text-align: center;
+  padding: 16px;
+}
+
+.lista-casas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}

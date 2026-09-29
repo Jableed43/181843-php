@@ -1,0 +1,31 @@
+.tarjeta-casa {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  padding: 16px;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.tarjeta-casa img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.tarjeta-casa h2 {
+  margin: 10px 0 4px;
+  font-size: 18px;
+}
+
+.tarjeta-casa p {
+  font-size: 13px;
+  color: #444;
+  margin: 4px 0;
+}
+
+.tarjeta-casa.favorita {
+  box-shadow: 0 0 0 3px #ffd700, 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
