@@ -7,6 +7,7 @@ import casas from "./datosCasas";
 function ListaCasas() {
   // TODO 2: declarar el estado "favorita", arrancando en null (nadie elegida todavía).
   // Pista: const [favorita, setFavorita] = useState(null);
+  const [favorita, setFavorita] = useState(null)
 
   return (
     <div className="lista-casas">
@@ -20,6 +21,8 @@ function ListaCasas() {
           director={casa.director}
           ubicacion={casa.ubicacion}
           imagen={casa.imagen}
+          esFavorita={casa.nombre === favorita}
+          onElegir={() => setFavorita(casa.nombre)}
           // TODO 3: pasar esFavorita={casa.nombre === favorita}
           // TODO 4: pasar onElegir={() => setFavorita(casa.nombre)}
         />

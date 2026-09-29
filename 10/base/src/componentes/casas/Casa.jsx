@@ -17,7 +17,8 @@ function Casa({
   return (
     // TODO 1: agregar la clase "favorita" cuando esFavorita sea true.
     // Pista: `tarjeta-casa ${esFavorita ? "favorita" : ""}`
-    <section className="tarjeta-casa">
+
+    <section className={`tarjeta-casa ${esFavorita ? "favorita" : ""} `}>
       <img src={imagen} alt={nombre} />
       <h2>{nombre}</h2>
       <p>{valores}</p>
