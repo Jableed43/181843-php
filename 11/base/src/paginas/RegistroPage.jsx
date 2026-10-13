@@ -1,20 +1,9 @@
-// TODO 7: navegación programática (sin un <Link> que clickear).
-//   1) importar el hook:
-//        import { useNavigate } from "react-router-dom";
-//   2) adentro del componente, antes de las funciones:
-//        const navigate = useNavigate();
-//   3) completar las dos funciones de abajo:
-//        irAlInicio → navigate("/")
-//        volver     → navigate(-1)   (un paso atrás en el historial)
-
 function RegistroPage() {
-  function irAlInicio() {
-    // TODO 7: navigate("/");
-  }
+  // TODO 7: que los botones naveguen: "Ir al inicio" lleva a "/" y "Volver" retrocede
+  // un paso en el historial (pista: useNavigate)
+  function irAlInicio() {}
 
-  function volver() {
-    // TODO 7: navigate(-1);
-  }
+  function volver() {}
 
   return (
     <section className="pagina">

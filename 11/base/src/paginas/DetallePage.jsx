@@ -1,18 +1,12 @@
 import { Link } from "react-router-dom";
 import casas from "../datos/casas";
 
-// Página de detalle de UNA casa. Vive en la ruta /casas/:id
 function DetallePage() {
-  // TODO 6: leer el parámetro :id de la URL con useParams.
-  //   1) agregar useParams al import de arriba:
-  //        import { Link, useParams } from "react-router-dom";
-  //   2) reemplazar la línea de abajo por:
-  //        const { id } = useParams();
-  const id = "gryffindor"; // ← valor fijo de prueba, hay que borrarlo
+  // TODO 6: leer el id que viene en la URL en vez de usar este valor fijo (pista: useParams)
+  const id = "gryffindor";
 
   const casa = casas.find((c) => c.id === id);
 
-  // Si el id de la URL no coincide con ninguna casa, avisamos en vez de romper.
   if (!casa) {
     return (
       <section className="pagina">

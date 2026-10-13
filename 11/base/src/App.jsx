@@ -1,37 +1,21 @@
 import "./App.css";
 import Menu from "./componentes/Menu";
 import HomePage from "./paginas/HomePage";
-// TODO 1: importar desde "react-router-dom":
-//   import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-// TODO 2: importar las páginas que faltan:
-//   import CasasPage from "./paginas/CasasPage";
-//   import RegistroPage from "./paginas/RegistroPage";
-// TODO 5: importar DetallePage desde "./paginas/DetallePage"
-// TODO 9: importar NotFoundPage desde "./paginas/NotFoundPage"
+// TODO 2: importar CasasPage y RegistroPage
+// TODO 5: importar DetallePage
+// TODO 9: importar NotFoundPage
 
 function App() {
+  // TODO 1: instalar y activar el router de react-router-dom (pista: BrowserRouter)
   return (
     <div className="App">
-      {/* TODO 1: envolver TODO lo que sigue (Menu + el contenido) con
-          <BrowserRouter> ... </BrowserRouter> */}
       <Menu />
 
       <main>
-        {/* TODO 2: reemplazar <HomePage /> por un bloque <Routes> con 3 rutas:
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/casas" element={<CasasPage />} />
-                <Route path="/registro" element={<RegistroPage />} />
-              </Routes>
-
-            TODO 5: sumar la ruta con parámetro:
-              <Route path="/casas/:id" element={<DetallePage />} />
-
-            TODO 8: sumar la redirección de /home a /:
-              <Route path="/home" element={<Navigate to="/" replace />} />
-
-            TODO 9: sumar, AL FINAL, la ruta comodín (404):
-              <Route path="*" element={<NotFoundPage />} />  */}
+        {/* TODO 2: mostrar una página distinta según la URL: "/", "/casas" y "/registro" (pista: Routes y Route) */}
+        {/* TODO 5: sumar la ruta del detalle de una casa; el id viaja en la URL */}
+        {/* TODO 8: redirigir "/home" a "/" (pista: Navigate) */}
+        {/* TODO 9: mostrar NotFoundPage para cualquier URL que no exista */}
         <HomePage />
       </main>
     </div>
