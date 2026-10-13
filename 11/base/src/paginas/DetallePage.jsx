@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import casas from "../datos/casas";
 
 function DetallePage() {
   // TODO 6: leer el id que viene en la URL en vez de usar este valor fijo (pista: useParams)
-  const id = "gryffindor";
+  const { id } = useParams()
+  // const id = "gryffindor";
 
   const casa = casas.find((c) => c.id === id);
 
