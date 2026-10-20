@@ -1,14 +1,25 @@
 import { useState, useEffect } from "react";
 
-// Custom Hook: devuelve true si el navegador tiene conexión a internet.
+// PARTE 2 — Custom Hook
+// Una función cuyo nombre empieza con "use" y que adentro usa otros hooks.
+// Devuelve true si el navegador tiene conexión a internet, false si no.
 function useEstadoConexion() {
-  // TODO 3: guardar en un estado si hay conexión; el valor inicial lo da
-  // navigator.onLine. Reemplazar estas dos líneas.
-  const enLinea = true;
-  const setEnLinea = () => {};
+  const [enLinea, setEnLinea] = useState(navigator.onLine);
 
-  // TODO 4: escuchar los eventos "online" y "offline" de window para actualizar
-  // el estado, y dejar de escucharlos al desmontar (pista: useEffect con limpieza)
+  useEffect(() => {
+    const handleOnline = () => setEnLinea(true);
+    const handleOffline = () => setEnLinea(false);
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    // Limpieza: al desmontar, dejamos de escuchar (si no, los listeners
+    // quedarían vivos aunque el componente ya no exista).
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
 
   return enLinea;
 }

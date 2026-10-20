@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 
 function ContadorHechizos() {
   // TODO 1: declarar el estado "hechizos" (arranca en 0) y reemplazar estas dos líneas
-  const hechizos = 0;
-  const setHechizos = () => {};
+  const [hechizos, setHechizos] = useState(0)
 
   // TODO 2: actualizar document.title con la cantidad de hechizos,
   // solo cuando "hechizos" cambie (pista: useEffect)
+  useEffect(() => {
+    document.title = `Hechizos lanzados: ${hechizos}`
+  }, [hechizos])
 
   return (
     <section className="seccion">

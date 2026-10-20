@@ -2,7 +2,7 @@ import useEstadoConexion from "../../hooks/useEstadoConexion";
 
 function IndicadorConexion() {
   // TODO 5: obtener "enLinea" llamando al hook useEstadoConexion
-  const enLinea = true;
+  const enLinea = useEstadoConexion()
 
   return (
     <span className="indicador">
