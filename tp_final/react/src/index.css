@@ -1,0 +1,8 @@
+/* Estilos globales mínimos. Los estilos de la tienda están en App.css */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
