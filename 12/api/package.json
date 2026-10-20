@@ -1,0 +1,13 @@
+{
+  "name": "api-hogwarts",
+  "version": "1.0.0",
+  "description": "API local (json-server) con los personajes de Harry Potter, para consumir con useFetch sin depender de internet",
+  "private": true,
+  "scripts": {
+    "dev": "json-server --watch db.json --port 3001",
+    "start": "json-server --watch db.json --port 3001"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}
